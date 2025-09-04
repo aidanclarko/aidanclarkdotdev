@@ -6,7 +6,7 @@ import TerminalInternals from "./terminal_content/TerminalInternals";
 const listOfCommands = [
   { cmd: "curl -o resume.pdf", desc: "Download my resume" },
   { cmd: "grep Aidan", desc: "Check my about me" },
-  { cmd: "ls/cd", desc: "Use it as a search bar!" },
+  { cmd: "ls/cd", desc: "Use it to navigate the site!" },
   { cmd: "help", desc: "that might be why you're here" },
 ];
 

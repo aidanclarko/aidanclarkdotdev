@@ -27,30 +27,33 @@ function Nav() {
   const [showTerminal, setShowTerminal] = React.useState(false);
   const buttonItems = [
     { name: "Resume", id: "/resume" },
-    { name: "Projects", id: "/projects" },
-    { name: "Contact", id: "/contact" },
+    // { name: "Projects", id: "/projects" },
+    // { name: "Contact", id: "/contact" },
+    { name: "More to Come", id: "/nothing" },
   ];
 
   const router = useRouter();
   return (
     <>
       <div className="fixed top-0 w-full z-50 h-24 rounded-b-md text-6xl font-bold flex items-center px-9 justify-between flex-row bg-foreground text-background">
-        <h1
-          onClick={() => {
-            router.push("/");
-          }}
-          className="cursor-pointer ml-40"
-        >
-          aidanclark.dev
-        </h1>
-        <Button
-          className="p-2 rounded-md hover:bg-amber-50/40 transition mr-96"
-          onClick={() => setShowTerminal(true)}
-        >
-          {" "}
-          <GoTerminal color={"green"} size={40} />
-          {""}
-        </Button>
+        <div className="">
+          <h1
+            onClick={() => {
+              router.push("/");
+            }}
+            className="cursor-pointer ml-30"
+          >
+            aidanclark.dev
+            <Button
+              className="p-1 rounded-md hover:bg-amber-50/40 transition mr-96"
+              onClick={() => setShowTerminal(true)}
+            >
+              {" "}
+              <GoTerminal color={"green"} size={40} />
+              {""}
+            </Button>
+          </h1>
+        </div>
         <div className="space-x-4 text-3xl mr-20">
           {buttonItems.map((item) => (
             <Button
