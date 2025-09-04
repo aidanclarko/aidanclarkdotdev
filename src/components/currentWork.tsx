@@ -1,8 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 
+type Repo = {
+  name: string;
+  description: string | null;
+  html_url: string;
+};
+
 export default function CurrentWork() {
-  const [repo, setRepo] = useState<any>(null);
+  const [repo, setRepo] = useState<Repo | null>(null);
 
   useEffect(() => {
     fetch(
