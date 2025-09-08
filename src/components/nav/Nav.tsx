@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "react-aria-components";
 import Terminal from "../../components/Terminal";
 import { GoTerminal } from "react-icons/go";
-import { FiMenu, FiX } from "react-icons/fi"; // hamburger icons
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Nav() {
-  const [showTerminal, setShowTerminal] = React.useState(false);
-  const [menuOpen, setMenuOpen] = React.useState(false);
+  const [showTerminal, setShowTerminal] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const buttonItems = [
     { name: "Projects", id: "/projects" },
