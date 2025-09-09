@@ -35,6 +35,7 @@ export default function MainPage() {
           <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
             <a
               href="/Aidan_Clark_Resume.png"
+              download="Aidan_Clark_Resume.png"
               className="px-6 py-3 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-primary/80 transition text-center"
             >
               Download Resume
