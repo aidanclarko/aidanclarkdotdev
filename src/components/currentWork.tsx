@@ -21,7 +21,7 @@ export default function CurrentWork() {
   if (!repo) return <p>Loading...</p>;
 
   return (
-    <div className="bg-foreground p-5 rounded-xl shadow-md w-[400px]">
+    <div className="bg-card p-6 rounded-2xl shadow-lg w-full h-full bg-foreground">
       <h2 className="text-xl font-bold text-background">
         Currently Working On
       </h2>

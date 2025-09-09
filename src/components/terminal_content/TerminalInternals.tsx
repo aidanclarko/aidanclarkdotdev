@@ -25,7 +25,6 @@ export default function TerminalInternals() {
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new content is added
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
@@ -39,6 +38,7 @@ export default function TerminalInternals() {
     link.click();
   };
 
+  //please dont look at this
   const handleCommand = (cmd: string) => {
     let result = "";
     if (cmd.toLowerCase() === "help") {
@@ -57,11 +57,13 @@ export default function TerminalInternals() {
         setHistory((prev) => [...prev, { command: cmd, output: result }]);
       }, 1200);
       downloadResume();
-    } else if (cmd === "cd /resume") {
-      router.push("/resume");
+    } else if (cmd === "cd /contact") {
+      router.push("/contact");
     } else if (cmd === "ls") {
-      result = "/resume /projects /about /contact";
+      result = "/home /contact";
       setHistory((prev) => [...prev, { command: cmd, output: result }]);
+    } else if (cmd === "cd /home" || cmd === "cd ~") {
+      router.push("/");
     } else {
       result = `Command not found: ${cmd}`;
       setHistory((prev) => [...prev, { command: cmd, output: result }]);

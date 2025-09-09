@@ -10,10 +10,7 @@ export default function Nav() {
   const [showTerminal, setShowTerminal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const buttonItems = [
-    { name: "Projects", id: "/projects" },
-    { name: "Contact", id: "/contact" },
-  ];
+  const buttonItems = [{ name: "Contact", id: "/contact" }];
 
   const router = useRouter();
 
