@@ -8,9 +8,9 @@ import Projects from "../components/projectComp/Projects";
 export default function MainPage() {
   return (
     <>
-      <div className="flex flex-col md:flex-row items-center justify-center px-6 md:px-10 py-12 md:py-20 gap-10">
-        <div className="flex flex-col gap-6 max-w-[600px] text-center md:text-left">
-          <div className="flex flex-wrap justify-center md:justify-start text-4xl sm:text-5xl md:text-7xl text-foreground">
+      <div className="flex flex-col lg:flex-row items-center justify-center px-6 md:px-10 py-12 md:py-20 gap-10">
+        <div className="flex flex-col gap-6 max-w-[600px] text-center lg:text-left">
+          <div className="flex flex-wrap justify-center lg:justify-start text-4xl sm:text-5xl md:text-7xl text-foreground">
             Hello, I am{" "}
             <h1 className="text-primary px-2 sm:px-4 font-extrabold">Aidan</h1>
           </div>
@@ -32,7 +32,7 @@ export default function MainPage() {
             />
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
             <a
               href="/Aidan_Clark_Resume.png"
               className="px-6 py-3 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-primary/80 transition text-center"
@@ -55,6 +55,7 @@ export default function MainPage() {
             className="rounded-xl object-cover w-full h-full"
           />
         </div>
+
         <div className="flex-1 max-w-[400px] w-full">
           <Projects />
         </div>
@@ -66,8 +67,8 @@ export default function MainPage() {
             About Me
           </h1>
           <p className="leading-relaxed text-muted-foreground text-sm sm:text-base">
-            I'm a Computer Science student and software engineer passionate
-            about building practical tools and clean user experiences. I've
+            I&apos;m a Computer Science student and software engineer passionate
+            about building practical tools and clean user experiences. I&apos;ve
             worked on projects ranging from web apps in React and Next.js,
             Applications in Dart and Flutter, and Automation Tools. Currently
             focused on software. Always curious, always learning.
@@ -87,7 +88,7 @@ export default function MainPage() {
         </div>
 
         <div className="bg-card rounded-xl shadow-md p-6">
-          <h1 className="text-2xl sm:text-3xl font-semibold text-primary mb-4">
+          <h1 className="text-2xl sm:text-3xl font-semibent text-primary mb-4">
             My Passion
           </h1>
           <p className="leading-relaxed text-muted-foreground text-sm sm:text-base">
