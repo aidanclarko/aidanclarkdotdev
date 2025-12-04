@@ -24,12 +24,25 @@ export default function TerminalInternals() {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const terminalRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
 
   useEffect(() => {
     if (terminalRef.current) {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   }, [history]);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if(document.activeElement !== inputRef.current) {
+        inputRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
   const downloadResume = () => {
     const link = document.createElement("a");
@@ -46,23 +59,21 @@ export default function TerminalInternals() {
       setHistory((prev) => [...prev, { command: cmd, output: result }]);
     } else if (cmd.toLowerCase() === "grep aidan") {
       result =
-        "Name: Aidan Clark \n Role: Audio/Video Tech & Developer\n Skills: React, TypeScript, Python, C++, SQL\nFun Fact: Loves the outdoors";
+        "Name: Aidan Clark \n Role: Audio/Video Tech & Software Engineer\n Skills: React, TypeScript, Python, C++, SQL\nFun Fact: Loves the outdoors";
       setHistory((prev) => [...prev, { command: cmd, output: result }]);
     } else if (cmd.toLowerCase() === "clear") {
       setHistory([]);
       setInput("");
-    } else if (cmd.toLowerCase() === "curl -o resume.pdf") {
+    } else if (cmd.toLowerCase() === "wget resume.pdf") {
       setTimeout(() => {
         result = "downloaded resume!";
         setHistory((prev) => [...prev, { command: cmd, output: result }]);
       }, 1200);
       downloadResume();
-    } else if (cmd === "cd /contact") {
-      router.push("/contact");
     } else if (cmd === "ls") {
-      result = "/home /contact";
+      result = "/home";
       setHistory((prev) => [...prev, { command: cmd, output: result }]);
-    } else if (cmd === "cd /home" || cmd === "cd ~") {
+    } else if (cmd === "cd /home" || cmd === "cd ~" || cmd === "cd home") {
       router.push("/");
     } else {
       result = `Command not found: ${cmd}`;
@@ -93,6 +104,7 @@ export default function TerminalInternals() {
         <span className="font-bold">aidanclark in ~ </span>
         {!input && <span className={`cursor ${blinkColor} p-1`}>|</span>}
         <input
+          ref={inputRef}
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => {
