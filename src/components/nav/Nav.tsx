@@ -4,13 +4,9 @@ import { useRouter } from "next/navigation";
 import { Button } from "react-aria-components";
 import Terminal from "../../components/Terminal";
 import { GoTerminal } from "react-icons/go";
-import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Nav() {
   const [showTerminal, setShowTerminal] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const buttonItems = [{ name: "Contact", id: "/contact" }];
 
   const router = useRouter();
 
@@ -28,20 +24,12 @@ export default function Nav() {
           </h1>
 
           <div className="hidden md:flex items-center space-x-8 text-xl">
-            {buttonItems.map((item) => (
-              <Button
-                key={item.id}
-                className="hover:bg-primary rounded-xl px-3 py-1 transition"
-                onClick={() => router.push(item.id)}
-              >
-                {item.name}
-              </Button>
-            ))}
+
             <Button
               className="p-2 rounded-md hover:bg-amber-50/40 transition"
               onClick={() => setShowTerminal(true)}
             >
-              <GoTerminal color="green" size={28} />
+              <GoTerminal color="green" size={45} />
             </Button>
           </div>
 
@@ -50,33 +38,10 @@ export default function Nav() {
               className="p-2 rounded-md hover:bg-amber-50/40 transition"
               onClick={() => setShowTerminal(true)}
             >
-              <GoTerminal color="green" size={24} />
-            </Button>
-            <Button
-              className="p-2 rounded-md hover:bg-amber-50/40 transition"
-              onClick={() => setMenuOpen(!menuOpen)}
-            >
-              {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              <GoTerminal color="green" size={25} />
             </Button>
           </div>
         </div>
-
-        {menuOpen && (
-          <div className="md:hidden flex flex-col items-center space-y-4 py-4 bg-foreground text-lg shadow-inner">
-            {buttonItems.map((item) => (
-              <Button
-                key={item.id}
-                className="hover:bg-primary rounded-xl px-3 py-2 w-32 text-center"
-                onClick={() => {
-                  setMenuOpen(false);
-                  router.push(item.id);
-                }}
-              >
-                {item.name}
-              </Button>
-            ))}
-          </div>
-        )}
       </nav>
 
       {showTerminal && (
